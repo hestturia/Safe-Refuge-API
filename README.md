@@ -1,7 +1,7 @@
 ## Projeto Pda - 2024.8
 
-### Itegrantes Squad:
-1. **Líder:** Beatriz Malhaçao
+### Integrantes Squad:
+1. **Líder:** Beatriz Magalhães
 - _[Git Hub](https://github.com/l1Beatriz)_
 2. **Comunicador/a:** Phelipe Cezario
 - _[Git Hub](#)_
