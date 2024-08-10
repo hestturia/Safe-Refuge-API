@@ -35,4 +35,6 @@ if (process.env.NODE_ENV !== 'test') {
   });
 }
 
-export { app, server }; // Exporte o servidor para testes
+export { app, server }; async (params) => {
+  // Exportar o servidor para testes pls
+}
