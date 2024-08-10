@@ -1,12 +1,7 @@
 import sequelize from "../database/configDatabase.js";
-import { DataTypes } from "sequelize";
+import { DataTypes } from 'sequelize';
 
 const Service = sequelize.define("Service", {
-  id: {
-    type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true,
-  },
   user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -18,10 +13,9 @@ const Service = sequelize.define("Service", {
   telefone: {
     type: DataTypes.STRING,
     allowNull: false,
-  },
+  }
 }, {
   tableName: 'services',
 });
 
 export default Service;
-
