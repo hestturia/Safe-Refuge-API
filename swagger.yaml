@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: API de Serviços
+  description: API para gerenciar serviços de usuários.
+  version: 1.0.0
+
+servers:
+  - url: http://localhost:3000/api
+    description: Servidor local
+
+paths:
+  /services:
+    get:
+      summary: Listar todos os serviços
+      responses:
+        '200':
+          description: Lista de serviços
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Service'
+    post:
+      summary: Criar um novo serviço
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+      responses:
+        '201':
+          description: Serviço criado com sucesso
+  /services/{id}:
+    put:
+      summary: Atualizar um serviço existente
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID do serviço a ser atualizado
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Service'
+      responses:
+        '200':
+          description: Serviço atualizado com sucesso
+    delete:
+      summary: Deletar um serviço existente
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+          description: ID do serviço a ser deletado
+      responses:
+        '200':
+          description: Serviço deletado com sucesso
+
+components:
+  schemas:
+    Service:
+      type: object
+      required:
+        - user_id
+        - nome
+        - telefone
+      properties:
+        id:
+          type: integer
+          description: ID do serviço
+        user_id:
+          type: integer
+          description: ID do usuário relacionado
+        nome:
+          type: string
+          description: Nome do serviço
+        telefone:
+          type: string
+          description: Telefone do serviço
