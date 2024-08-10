@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: API de Serviços
-  description: API para gerenciar serviços de usuários.
+  title: API SAFE-REFUGE
+  description: .
   version: 1.0.0
 
 servers:
