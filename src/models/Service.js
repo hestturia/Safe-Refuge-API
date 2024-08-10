@@ -1,9 +1,12 @@
-import { Model, DataTypes } from 'sequelize';
-import sequelize from '../database/configDatabase'; 
+import sequelize from '../database/configDatabase.js';
+import { DataTypes } from 'sequelize';
 
-class Service extends Model {}
-
-Service.init({
+const Service = sequelize.define('Service', {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
+  },
   user_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -15,11 +18,10 @@ Service.init({
   telefone: {
     type: DataTypes.STRING,
     allowNull: false,
-  }
+  },
 }, {
-  sequelize,
-  modelName: 'Service',
   tableName: 'services',
 });
 
-export { Service };
+export default Service;
+
