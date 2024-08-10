@@ -1,7 +1,7 @@
-import sequelize from '../database/configDatabase.js';
-import { DataTypes } from 'sequelize';
+import sequelize from "../database/configDatabase.js";
+import { DataTypes } from "sequelize";
 
-const Service = sequelize.define('Service', {
+const Service = sequelize.define("Service", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
