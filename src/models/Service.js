@@ -4,6 +4,8 @@ import { DataTypes } from 'sequelize';
 const Service = sequelize.define("Service", {
   user_id: {
     type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
     allowNull: false,
   },
   nome: {

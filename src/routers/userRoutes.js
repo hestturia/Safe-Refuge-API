@@ -1,4 +1,4 @@
-import UserController from "../controllers/userController";
+import UserController from "../controllers/userController.js";
 import { Router } from "express";
 
 const routes = Router();

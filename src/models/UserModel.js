@@ -1,4 +1,4 @@
-import sequelize from "../database/configDatabase";
+import sequelize from "../database/configDatabase.js";
 import { DataTypes } from "sequelize";
 
 const User = sequelize.define("User", {
@@ -39,6 +39,8 @@ const User = sequelize.define("User", {
             len: [8, 100],
         }
     }
-})
+}, {
+    tableName: "users",
+});
 
 export default User;

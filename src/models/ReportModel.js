@@ -20,6 +20,8 @@ const Report = sequelize.define("Report", {
     anonymous: {
         type: DataTypes.BOOLEAN,
     }
-})
+}, {
+    tableName: "reports",
+});
 
 export default Report;
