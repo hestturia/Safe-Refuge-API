@@ -1,12 +1,12 @@
 import express from "express";
 import sequelize from "./database/configDatabase.js";
-import routes from "./routers/reportsRoutes.js"
+import routes from "./routers/index.js";
 
 const app = express();
-app.use(routes);
+routes(app);
 
 
-sequelize.sync({alter: true})
+sequelize.sync()
   .then(() => {
     console.log("Banco sincronizado");
   }) 
