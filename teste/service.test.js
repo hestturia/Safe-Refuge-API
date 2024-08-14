@@ -1,6 +1,6 @@
-import request from 'supertest';
-import { app } from '../index.js'; 
-import { Service } from '../src/models/Service.js'; 
+import request from "supertest";
+import { app } from "../index.js";
+import Service from "../src/models/Service.js";
 
 describe('Service API', () => {
   beforeAll(async () => {
@@ -11,7 +11,7 @@ describe('Service API', () => {
     await Service.drop();
   });
 
-  test('Deve criar um novo serviço', async () => {
+  it('Deve criar um novo serviço', async () => {
     const response = await request(app)
       .post('/api/services')
       .send({
@@ -25,14 +25,14 @@ describe('Service API', () => {
     expect(response.body.nome).toBe('Serviço de Teste');
   });
 
-  test('Deve buscar todos os serviços', async () => {
+  it('Deve buscar todos os serviços', async () => {
     const response = await request(app).get('/api/services');
 
     expect(response.statusCode).toBe(200);
     expect(response.body.length).toBeGreaterThan(0);
   });
 
-  test('Deve buscar um serviço por ID', async () => {
+  it('Deve buscar um serviço por ID', async () => {
     const service = await Service.create({ user_id: 1, nome: 'Serviço Individual', telefone: '0987654321' });
 
     const response = await request(app).get(`/api/services/${service.id}`);
@@ -41,7 +41,7 @@ describe('Service API', () => {
     expect(response.body.nome).toBe('Serviço Individual');
   });
 
-  test('Deve atualizar um serviço', async () => {
+  it('Deve atualizar um serviço', async () => {
     const service = await Service.create({ user_id: 1, nome: 'Serviço Antigo', telefone: '0987654321' });
 
     const response = await request(app)
@@ -52,7 +52,7 @@ describe('Service API', () => {
     expect(response.body.nome).toBe('Serviço Atualizado');
   });
 
-  test('Deve deletar um serviço', async () => {
+  it('Deve deletar um serviço', async () => {
     const service = await Service.create({ user_id: 1, nome: 'Serviço para Deletar', telefone: '0987654321' });
 
     const response = await request(app).delete(`/api/services/${service.id}`);
