@@ -15,7 +15,7 @@ const User = sequelize.define("User", {
     },
 
     age: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
             isInt: true,
