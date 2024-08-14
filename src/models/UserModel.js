@@ -1,5 +1,6 @@
 import sequelize from "../database/configDatabase.js";
 import { DataTypes } from "sequelize";
+import EmergencyContact from './EmergencyContactModel.js';
 
 const User = sequelize.define("User", {
     id: {
@@ -41,6 +42,18 @@ const User = sequelize.define("User", {
     }
 }, {
     tableName: "users",
+});
+
+// relacionando o usuario com os contatos de emergencia
+
+User.hasMany(EmergencyContact, {
+    foreignKey: 'user_id',
+    as: 'EmergencyContacts', // Nome do campo usado para acessar os contatos de emergência
+});
+
+EmergencyContact.belongsTo(User, {
+    foreignKey: 'user_id',
+    as: 'user', // Nome do campo usado para acessar o usuário associado
 });
 
 export default User;
