@@ -15,7 +15,7 @@ const User = sequelize.define("User", {
     },
 
     age: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
             isInt: true,
@@ -39,6 +39,8 @@ const User = sequelize.define("User", {
             len: [8, 100],
         }
     }
-})
+}, {
+    tableName: "users",
+});
 
 export default User;
