@@ -1,5 +1,5 @@
 import express from 'express';
-import * as serviceController from '../controllers/serviceController.js'; 
+import * as serviceController from '../controllers/NotificacaoEmergencia.js'; 
 
 const router = express.Router();
 

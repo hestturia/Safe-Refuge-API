@@ -4,7 +4,7 @@ import YAML from 'yamljs';
 import cors from 'cors';
 import morgan from 'morgan'; 
 import serviceRouter from './src/routers/serviceRouter.js'; 
-
+import EmergenciaRouter from './src/routers/EmergenciaRouter.js'; 
 const app = express();
 
 app.use(cors());
