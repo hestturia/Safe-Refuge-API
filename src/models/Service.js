@@ -8,16 +8,19 @@ const Service = sequelize.define("Service", {
     autoIncrement: true,
     allowNull: false,
   },
+
   nome: {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  
   telefone: {
     type: DataTypes.STRING,
     allowNull: false,
   }
 }, {
   tableName: 'services',
+  timestamps: false,
 });
 
 export default Service;
