@@ -1,4 +1,4 @@
-import Service from '../models/Service.js';  
+import Service from "../models/Service.js";  
 
 export async function createService(req, res) {
     try {
@@ -16,7 +16,7 @@ export const getAllServices = async (req, res) => {
     const services = await Service.findAll();
     res.status(200).json(services);
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao listar serviços', error });
+    res.status(500).json({ message: "Erro ao listar serviços", error });
   }
 };
 
@@ -27,14 +27,14 @@ export const updateService = async (req, res) => {
     const { nome, telefone } = req.body;
     const service = await Service.findByPk(id);
     if (!service) {
-      return res.status(404).json({ message: 'Serviço não encontrado' });
+      return res.status(404).json({ message: "Serviço não encontrado" });
     }
     service.nome = nome;
     service.telefone = telefone;
     await service.save();
     res.status(200).json(service);
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao atualizar serviço', error });
+    res.status(500).json({ message: "Erro ao atualizar serviço", error });
   }
 };
 
@@ -44,11 +44,11 @@ export const deleteService = async (req, res) => {
     const { id } = req.params;
     const service = await Service.findByPk(id);
     if (!service) {
-      return res.status(404).json({ message: 'Serviço não encontrado' });
+      return res.status(404).json({ message: "Serviço não encontrado" });
     }
     await service.destroy();
-    res.status(200).json({ message: 'Serviço deletado com sucesso' });
+    res.status(200).json({ message: "Serviço deletado com sucesso" });
   } catch (error) {
-    res.status(500).json({ message: 'Erro ao deletar serviço', error });
+    res.status(500).json({ message: "Erro ao deletar serviço", error });
   }
 };
