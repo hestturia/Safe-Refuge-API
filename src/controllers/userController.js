@@ -31,6 +31,21 @@ class UserController {
             report: createUser
         });
     }
+
+    static async deleteReport(req, res) {
+        try {
+            const { id } = req.params;
+            const user = await User.findByPk(id);
+            await user.destroy();
+            res.status(200).json({
+                message: "user deleted"
+            })
+        } catch(error) {
+            res.status(500).json({ 
+                message: "request failure", error 
+            });
+        }
+    }
 }
 
 export default UserController;

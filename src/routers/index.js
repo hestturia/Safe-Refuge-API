@@ -8,8 +8,6 @@ const routes = (app) => {
     reports,
     service,
     user
-)
-}
-
+)}
 
 export default routes
