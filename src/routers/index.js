@@ -10,4 +10,4 @@ const routes = (app) => {
     user
 )}
 
-export default routes
+export default routes;
