@@ -38,7 +38,7 @@ export const updateService = async (req, res) => {
   }
 };
 
-// Deleta um serviço
+
 export const deleteService = async (req, res) => {
   try {
     const { id } = req.params;

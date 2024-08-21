@@ -1,8 +1,11 @@
 import { Sequelize } from "sequelize";
 
- const sequelize = new Sequelize("safe_haven", "root", "12345", {
-    host: "localhost",
+const sequelize = new Sequelize(
+   "safe-haven", //database
+   "root", //user
+   "{#bej&Bu_fJ}&~vt", /*pass*/  { 
+    host: "34.69.21.255",
     dialect: "mysql"
- })
+ });
 
 export default sequelize;

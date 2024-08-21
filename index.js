@@ -3,18 +3,18 @@ import swaggerUi from 'swagger-ui-express';
 import YAML from 'yamljs';
 import cors from 'cors';
 import morgan from 'morgan'; 
+
+ const app = express();
+
 import serviceRouter from './src/routers/serviceRouter.js'; 
 import EmergenciaRouter from './src/routers/EmergenciaRouter.js'; 
 const app = express();
 
 app.use(cors());
-app.use(express.json());
 app.use(morgan('combined'));
 
 const swaggerDocument = YAML.load('./swagger.yaml');
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-
-app.use('/api', serviceRouter);
 
 
 app.use((err, req, res, next) => {

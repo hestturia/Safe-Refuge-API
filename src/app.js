@@ -1,9 +1,9 @@
 import express from "express";
 import sequelize from "./database/configDatabase.js";
-import routes from "./routers/reportsRoutes.js"
+import routes from "./routers/index.js";
 
 const app = express();
-app.use(routes);
+routes(app);
 
 
 sequelize.sync({alter: true})
@@ -12,12 +12,5 @@ sequelize.sync({alter: true})
   }) 
   .catch (error => console.error("falha na conexão", error));
   
-  
-// try {
-//     await sequelize.authenticate();
-//     console.log("Conexão feita com sucesso");
-//   } catch (error) {
-//     console.error("falha na conexão", error);
-//   }
 
 export default app;
