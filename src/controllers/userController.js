@@ -32,7 +32,7 @@ class UserController {
         });
     }
 
-    static async deleteReport(req, res) {
+    static async deleteUser(req, res) {
         try {
             const { id } = req.params;
             const user = await User.findByPk(id);
